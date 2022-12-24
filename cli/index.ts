@@ -22,7 +22,9 @@ if (!from || to === undefined) {
     console.log("  is your shell expanding it? perhaps encase it in single quotes? '**/*.json'");
     process.exit(1);
   }
-  findRepl(from, to, inFiles[0]).catch((error) => {
+
+  const match = from.match(/^regex:\/(.+)\/([a-z]*)$/);
+  findRepl(match ? new RegExp(match[1], match[2]) : from, to, inFiles[0]).catch((error) => {
     console.log(error.message);
     process.exit(1);
   });
