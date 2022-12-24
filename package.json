@@ -47,6 +47,18 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "find",
+    "replace",
+    "repl",
+    "cli",
+    "global",
+    "files",
+    "git",
+    "gitignore",
+    "regex",
+    "glob"
+  ],
   "simple-git-hooks": {
     "commit-msg": "npx msg-time",
     "pre-commit": "npx lint-time",
