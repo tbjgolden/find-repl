@@ -26,15 +26,16 @@ npm install find-repl
 
 When running directly from the CLI, run with `npx find-repl`.
 
-```txt
-USAGE:
+```sh
+# USAGE:
   find-repl \
     string-to-search-for \ # (or regex:/js-regex-to-search-for/i)
     string-to-replace-with \
     [glob-of-files-to-search-in] # (optional; default all files known to git)
 
-EXAMPLES:
+# EXAMPLES:
   find-repl string-to-find string-to-replace-with '**/file-matcher-glob.ts'
+  
   find-repl regex:\/\\bfoo\\b\/ bar
 ```
 
