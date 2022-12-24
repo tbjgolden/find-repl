@@ -1,7 +1,7 @@
 {
   "name": "find-repl",
   "version": "0.0.0",
-  "description": "Conventional commit message enforcer 🧐",
+  "description": "Find and replace text in your project files ✍️",
   "license": "Apache-2.0",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",

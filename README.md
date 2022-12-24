@@ -1,16 +1,4 @@
-```sh
-git clone https://github.com/tbjgolden/find-repl.git cool-package-name
-cd cool-package-name
-npm install
-# One time init function to convert template to new project
-npx xnr .scripts/name.ts
-```
-
----
-
 # find-repl
-
-![banner](banner.svg)
 
 ![npm](https://img.shields.io/npm/v/find-repl)
 ![coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Ftbjgolden%2Ffind-repl%2Fmain%2Fcoverage.json&label=coverage&query=$.total.lines.pct&color=brightgreen&suffix=%25)
@@ -18,16 +6,13 @@ npx xnr .scripts/name.ts
 ![license](https://img.shields.io/npm/l/find-repl)
 [![install size](https://packagephobia.com/badge?p=find-repl)](https://packagephobia.com/result?p=find-repl)
 
-A npm library that does exactly what it says on the tin.
+Find and replace text in your project files ✍️
 
-## Table of Contents
-
-## Background
-
-- Cover motivation.
-- Cover abstract dependencies.
-- Cover compatible versions of Node, npm and ECMAScript.
-- Cover similar packages and alternatives.
+- does not modify files that git is ignoring
+- will replace all instances in a file, not just the first
+- supports regex in both CLI and API
+- can pass in a glob to scope the files to be searched/modified
+- **zero dependencies, tiny footprint**
 
 ## Install
 
@@ -37,35 +22,37 @@ This package is available from the `npm` registry.
 npm install find-repl
 ```
 
-## Usage
+## Usage (CLI)
 
-```sh
-npx find-repl ...
+When running directly from the CLI, run with `npx find-repl`.
+
+```txt
+USAGE:
+  find-repl \
+    string-to-search-for \ # (or regex:/js-regex-to-search-for/i)
+    string-to-replace-with \
+    [glob-of-files-to-search-in] # (optional; default all files known to git)
+
+EXAMPLES:
+  find-repl string-to-find string-to-replace-with '**/file-matcher-glob.ts'
+  find-repl regex:\/\\bfoo\\b\/ bar
 ```
+
+## API
 
 Supports JavaScript + TypeScript:
 
 ```ts
-import { foo } from "find-repl";
+import { findRepl } from "find-repl";
 
-foo();
+await findRepl(/\bLorem\s+ipsum\b/, "Loremus ipsumus", "**/*.md");
 ```
 
 Can also be imported via `require("find-repl")`.
 
-## API
-
-...
-
-## Credits
-
-...
-
 ## Contributing
 
-- State where users can ask questions.
-- State whether PRs are accepted.
-- List any requirements for contributing; for instance, having a sign-off on commits.
+GitHub issues / PRs welcome.
 
 Dev environment requires:
 
